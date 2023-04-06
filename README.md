@@ -20,7 +20,7 @@ The program is written in Python and can be run from the command line. To use it
 
 - Download or clone the repository to your computer.
 - Install the required dependencies by running `pip install -r requirements.txt` in your command prompt or terminal.
-- Run the program by executing the command `python main.py --dimensions <dimensions> --val_b <value_b> --algorithm <algorithm>` in your command prompt or terminal, where **<dimensions>** is the dimension of the problem, **<value_b>** is the vector $ b (15<=value_b<=100) $ and **<algorithm>** is one of the following: simplex, interior, or murty.
+- Run the program by executing the command `python main.py --dimensions <dimensions> --val_b <value_b> --algorithm <algorithm>` in your command prompt or terminal, where **<dimensions>** is the dimension of the problem, **<value_b>** is the vector b $(15 \leq value_b \leq 100)$ and **<algorithm>** is one of the following: simplex, interior, or murty.
 - The program will output the solution to the Klee-Minty problem using the specified algorithm.
 
 ## Results
