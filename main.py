@@ -1,6 +1,6 @@
 from KleeMinty_Solver.klee_minty import *
 from KleeMinty_Solver.hibrydAlgorithm import *
-from results_generator import *
+from KleeMinty_Solver.results_generator import *
 import json
 import numpy as np
 from KleeMinty_Solver.murtyAlgorithm import murty
