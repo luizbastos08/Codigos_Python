@@ -24,7 +24,7 @@ The program is written in Python and can be run from the command line. To use it
 - The program will output the solution to the Klee-Minty problem using the specified algorithm.
 
 ## Results
-The program will output the optimal solution to the Klee-Minty problem using the specified algorithm. The output will include the objective function value, the values of the decision variables, the number of iterations and the time required to obtain the solution.
+The program will output the optimal solution to the Klee-Minty problem using the specified algorithm. The output will include the objective function value, the number of iterations and the time required to obtain the solution.
 
 ## Conclusion
 The Klee-Minty problem is a challenging linear programming problem that requires specialized algorithms to solve efficiently. This program offers three different algorithms to solve the problem, each with its own advantages and disadvantages. By using this program, you can explore the performance of these algorithms and gain a deeper understanding of linear programming.
