@@ -11,8 +11,7 @@ $$ \sum_{j=1}^{n} 2^{n-j}x_j $$
 
 subject to:
 
-$$ 2\sum_{j=1}^{i-1} 2^{i-j}x_j + x_i \leq val_b^{i-1}, \quad i=1,2,\ldots,n $$
-$$ x_j \geq 0, \quad j=1,2,\ldots,n $$
+$$ 2\sum_{j=1}^{i-1} 2^{i-j}x_j + x_i \leq valb^{i-1}, \quad i=1,2,\ldots,n \quad x_j \geq 0, \quad j=1,2,\ldots,n$$
 
 This problem is interesting because the Simplex algorithm takes an exponential amount of time to solve it in the worst case, while Interior Point algorithms can solve it in polynomial time. The Murty Hybrid algorithm is a combination of both Simplex and Interior Point algorithms that aims to exploit the advantages of both methods.
 
