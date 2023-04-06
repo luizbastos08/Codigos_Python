@@ -1,5 +1,5 @@
 from KleeMinty_Solver.klee_minty import *
-from KleeMinty_Solver.hibrydAlgorithm import *
+from KleeMinty_Solver.hybridAlgorithm import *
 from KleeMinty_Solver.results_generator import *
 import json
 import numpy as np
@@ -13,42 +13,52 @@ import argparse
     Date: april-2023
 """
 
-"""
-dimensions = [2, 4, 6, 10, 14, 18, 20, 22, 24, 26]
-val_b = 100
-alpha0 = [0.01, 0.05, 0.10, 0.30, 0.50, 0.70]
-tolerance = [1e-1, 1e-2, 1e-4, 1e-6, 1e-8, 1e-10]
+def solution_project_I_UFMG():
+    """
+    A function that calculates the solution for the Klee-Minty problem
+    using the simplex algorithm, interior point algorithm and murty-hybrid algorithm
+    and generate the results in a word file.
+    This function aims to answer all the questions given in the first project
+    of the optimization course given by Prof. Rodney Saldanha at UFMG
+    """
+    dimensions = [2, 4, 6, 10, 14, 18, 20, 22, 24, 26]
+    val_b = 100
+    alpha0 = [0.01, 0.05, 0.10, 0.30, 0.50, 0.70]
+    tolerance = [1e-1, 1e-2, 1e-4, 1e-6, 1e-8, 1e-10]
 
-# Abrindo o arquivo JSON e lendo seu conteúdo
-with open('dados.json', 'r') as f:
-    dados = json.load(f)
+    # Opening the JSON file and reading its contents
+    with open('dados.json', 'r') as f:
+        dados = json.load(f)
 
 
-for i in range(len(dimensions)):
+    for i in range(len(dimensions)):
 
-    #Calcula o tempo médio de execução para o algoritmo de pontos interiores
-    aux = []
-    for j in range(10):
+        #Calculates the average running time for the interior points algorithm
+        aux = []
+        for j in range(10):
+            A, b, c = klee_minty(dimensions=dimensions[i], val_b=val_b)
+            sol_ip = interior_point(A, b, c, alpha0=alpha0[4], tolerance=tolerance[1])
+            aux.append(sol_ip['elapsed_time'])
+        mean = np.mean(aux)
+        # Adding values for the "Simplex\Execution Time" key
+        dados['dataframe1']['Interior Points\nExecution Time'][i] = round(mean,4)
+
+        #Calculates the number of iterations for the interior points algorithm
         A, b, c = klee_minty(dimensions=dimensions[i], val_b=val_b)
         sol_ip = interior_point(A, b, c, alpha0=alpha0[4], tolerance=tolerance[1])
-        aux.append(sol_ip['elapsed_time'])
-    mean = np.mean(aux)
-    # Adicionando valores para a chave "Simplex\nExecution Time"
-    dados['dataframe1']['Interior Points\nExecution Time'][i] = round(mean,4)
+        # Adding values for the "Simplex\Execution Time" key
+        dados['dataframe2']['Interior Points\nIterations'][i] = sol_ip['num_iterations']
 
-    #Calcula o número de iterações para o algoritmo de pontos interiores
-    A, b, c = klee_minty(dimensions=dimensions[i], val_b=val_b)
-    sol_ip = interior_point(A, b, c, alpha0=alpha0[4], tolerance=tolerance[1])
-    print(solution_to_str(sol_ip))
-    # Adicionando valores para a chave "Simplex\nExecution Time"
-    dados['dataframe2']['Interior Points\nIterations'][i] = sol_ip['num_iterations']
+    # Saves updated dictionary back to JSON file
+    with open('dados.json', 'w') as f:
+        json.dump(dados, f)
 
-# Salva o dicionário atualizado de volta ao arquivo JSON
-with open('dados.json', 'w') as f:
-    json.dump(dados, f)
+    f.close()
 
-f.close()
-"""
+    gen_results()
+
+    return
+
 
 def Solve_Klee_Minty(dimensions, val_b, algorithm, tolerance=1e-9, alpha0=0.99):
     # Define the Klee-Minty problem
@@ -86,3 +96,4 @@ if __name__ == '__main__':
     
     solution = Solve_Klee_Minty(args.dimensions, args.val_b, args.algorithm, args.tolerance, args.alpha0)
     print_solution_summary(solution)
+    #solution_project_I_UFMG()

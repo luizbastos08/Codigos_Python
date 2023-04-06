@@ -35,7 +35,7 @@ def add_table(document, title, dataframe):
 
 def gen_results():
     # Abrindo o arquivo JSON e lendo seu conteúdo
-    with open('dados.json', 'r') as f:
+    with open(os.path.dirname(__file__) + '/../dados.json', 'r') as f:
         dados = json.load(f)
 
     dataframe1 = pd.DataFrame(dados['dataframe1'])
@@ -243,9 +243,9 @@ def gen_results():
     add_table(document=document,title=title_table_16, dataframe=dataframe16)
 
     # Salva o arquivo em .docx
-    document.save('Results.docx')
+    document.save(os.path.dirname(__file__) + '/../Results.docx')
 
     #Abre o documento
-    os.startfile('Results.docx')
+    os.startfile(os.path.dirname(__file__) + '/../Results.docx')
 
     return
