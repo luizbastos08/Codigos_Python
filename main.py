@@ -70,6 +70,7 @@ def Solve_Klee_Minty(dimensions, val_b, algorithm, tolerance=1e-9, alpha0=0.99):
 
 def print_solution_summary(solution_dict):
     #Print the solution in a cleaner form
+    print("{}:".format(solution_dict["header"]))
     print("Max Value: {}".format(solution_dict["max_value"]))
     print("Number of Iterations: {}".format(solution_dict["num_iterations"]))
     print("Elapsed Time: {:.4f} seconds".format(solution_dict["elapsed_time"]))
