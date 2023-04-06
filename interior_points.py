@@ -4,7 +4,7 @@ from timer import _timer
 from random import random
 
 @_timer
-def interior_point(A, b, c, alpha0=0.99995, tolerance=1e-9, max_iterations=100000000):
+def interior_point(A, b, c, alpha0=0.99, tolerance=1e-9, max_iterations=100000000):
     """
     Author: Luiz Souza
     Date: april-2023

@@ -5,7 +5,7 @@ from timer import _timer
 
 
 @_timer
-def hybrid(A, b, c, alpha0=0.99995, tolerance=1e-8, max_iterations=100000000):
+def hybrid(A, b, c, alpha0=0.99, tolerance=1e-9, max_iterations=100000000):
     solution_ip = interior_point(A, b, c, alpha0, tolerance, max_iterations)
     if 'error' in solution_ip:
         x0_simplex = None

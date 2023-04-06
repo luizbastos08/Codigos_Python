@@ -21,6 +21,7 @@ def revised_simplex(A, b, c, B, tolerance=1e-9, max_iterations=100000000):
     I = 1*np.eye(len(c))
     A = np.hstack((A, I))                      # Insert the slack variables into matrix A, creating the augmented matrix A
     
+    num_var = len(c)
     aux = np.zeros(len(c))
     c = np.hstack((c, aux))                    # Insert the slack variables into vector b, creating the augmented vector b
     
@@ -55,19 +56,21 @@ def revised_simplex(A, b, c, B, tolerance=1e-9, max_iterations=100000000):
             x = np.zeros(n)
             x[B] = xB
             obj = c @ x
-            evolx.append(x)
-            evolobj.append(evolobj)
+            evolx = np.append(evolx, x)
+            evolobj = np.append(evolobj, obj)
 
+            gap_final = np.abs(b @ y - obj) / np.max([1, np.abs(obj)])
+            aux = len(c)
             solution = {'header': f'SIMPLEX - Dim: {len(c)/2} / Tolerance: {tolerance}', 
                 'message': 'Optimization terminated successfully', 
                 'status': 0, 
                 'max_value': obj, 
-                'solution': x,
+                'solution': x[:num_var],
                 'primal_solution': y,
                 'num_iterations': iter,
                 'evolution_x': evolx,
                 'evolution_Fobj':evolobj,
-                'gap_final': sNmax,
+                'gap_final': gap_final,
                 }
 
             return solution

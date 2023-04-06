@@ -1,8 +1,10 @@
 import numpy as np
-from sympy import Matrix
 
 def murty(A, c, x):
-
+    """
+    Author: Luiz Souza
+    Date: april-2023
+    """
     I = 1*np.eye(len(c))
     A = np.hstack((A, I))                      # Insert the slack variables into matrix A, creating the augmented matrix A
 

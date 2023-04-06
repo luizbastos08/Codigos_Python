@@ -6,7 +6,12 @@ import numpy as np
 from murtyAlgorithm import murty
 from revised_simplex import revised_simplex, simplex
 from interior_points import interior_point
+import argparse
 
+"""
+    Author: Luiz Henrique de Bastos Souza
+    Date: april-2023
+"""
 
 """
 dimensions = [2, 4, 6, 10, 14, 18, 20, 22, 24, 26]
@@ -45,15 +50,38 @@ with open('dados.json', 'w') as f:
 f.close()
 """
 
-A, b, c = klee_minty(dimensions=3, val_b=100)
+def Solve_Klee_Minty(dimensions, val_b, algorithm, tolerance=1e-9, alpha0=0.99):
+    # Define the Klee-Minty problem
+    A, b, c = klee_minty(dimensions=dimensions, val_b=val_b)
 
-sol_simplex = simplex(A, b, c)
-sol_ip = interior_point(A, b, c, alpha0=0.99, tolerance=1e-9)
-sol_hybrid = hybrid(A, b, c, alpha0=0.99, tolerance=1e-9)
+    # Select the algorithm to use and solve
+    if algorithm == "simplex":
+        solution = simplex(A, b, c)
+    elif algorithm == "interior":
+        solution = interior_point(A, b, c, alpha0=alpha0, tolerance=tolerance)
+    elif algorithm == "murty":
+        solution = hybrid(A, b, c, alpha0=alpha0, tolerance=tolerance)
+    else:
+        raise ValueError("Invalid algorithm: {}".format(algorithm))
+
+    # Return the solution
+    return solution
 
 
-print(sol_simplex)
-print('\n')
-print(sol_ip)
-print('\n')
-print(sol_hybrid)
+def print_solution_summary(solution_dict):
+    #Print the solution in a cleaner form
+    print("Max Value: {}".format(solution_dict["max_value"]))
+    print("Number of Iterations: {}".format(solution_dict["num_iterations"]))
+    print("Elapsed Time: {:.4f} seconds".format(solution_dict["elapsed_time"]))
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--dimensions', type=int, default=3, help='dimension of Klee-Minty problem')
+    parser.add_argument('-b', '--val_b', type=float, default=100, help='vector b in Klee-Minty problem')
+    parser.add_argument('-a', '--algorithm', choices=['simplex', 'interior', 'murty'], default='murty', help='algorithm to solve Klee-Minty problem')
+    parser.add_argument('-t', '--tolerance', type=float, default=1e-9, help='tolerance for the solver')
+    parser.add_argument('-alpha', '--alpha0', type=float, default=0.99, help='initial barrier parameter')
+    args = parser.parse_args()
+    
+    solution = Solve_Klee_Minty(args.dimensions, args.val_b, args.algorithm, args.tolerance, args.alpha0)
+    print_solution_summary(solution)
