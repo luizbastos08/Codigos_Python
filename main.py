@@ -1,11 +1,11 @@
-from klee_minty import *
-from hibrydAlgorithm import *
+from KleeMinty_Solver.klee_minty import *
+from KleeMinty_Solver.hibrydAlgorithm import *
 from results_generator import *
 import json
 import numpy as np
-from murtyAlgorithm import murty
-from revised_simplex import revised_simplex, simplex
-from interior_points import interior_point
+from KleeMinty_Solver.murtyAlgorithm import murty
+from KleeMinty_Solver.revised_simplex import revised_simplex, simplex
+from KleeMinty_Solver.interior_points import interior_point
 import argparse
 
 """

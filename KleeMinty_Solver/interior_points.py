@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.linalg import lu_factor, lu_solve
-from timer import _timer
+from KleeMinty_Solver.timer import _timer
 from random import random
 
 @_timer

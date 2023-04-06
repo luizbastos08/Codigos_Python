@@ -1,7 +1,7 @@
-from murtyAlgorithm import murty
-from revised_simplex import revised_simplex
-from interior_points import interior_point
-from timer import _timer
+from KleeMinty_Solver.murtyAlgorithm import murty
+from KleeMinty_Solver.revised_simplex import revised_simplex
+from KleeMinty_Solver.interior_points import interior_point
+from KleeMinty_Solver.timer import _timer
 
 
 @_timer
