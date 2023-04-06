@@ -6,7 +6,7 @@ This program is designed to solve the Klee-Minty problem using three different a
 The Klee-Minty problem is a special case of linear programming problem that was introduced by Victor Klee and George Minty in 1972. It has the following form:
 
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
-$$ \text{maximize } \sum_{j=1}^{n} 2^{n-j}x_j $$
+$$ maximize \sum_{j=1}^{n} 2^{n-j}x_j $$
 subject to:
 $$ 2\sum_{j=1}^{i-1} 2^{i-j}x_j + x_i \leq val_b^{i-1}, \quad i=1,2,\ldots,n $$
 $$ x_j \geq 0, \quad j=1,2,\ldots,n $$
