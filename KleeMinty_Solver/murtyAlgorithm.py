@@ -11,14 +11,14 @@ def murty(A, c, x):
     m,n = np.shape(A)
     # Starting tableau
     B = np.where(x > 0)[0]                      # index set of basic variables
-    # R, jb = row_echelon(A[:, B])     # reduced row echelon form
+    # R, jb = row_echelon(A[:, B])              # reduced row echelon form
     R = np.abs(np.linalg.qr(A[:, B], mode='r'))
     jb = np.where(np.abs(R) > 1e-10)[1]
     while len(B) > np.linalg.matrix_rank(A[:, B]):
         # Calculate search direction
         d = np.zeros(n)
         a = np.arange(R.shape[1])
-        a[jb] = []  # columns that are not part of eye matrix
+        a[jb] = []                              # columns that are not part of eye matrix
         d[B[jb]] = -R[:, a[0]]
         d[B[a[0]]] = 1
 
@@ -34,7 +34,7 @@ def murty(A, c, x):
         i = f[np.argmin(-rate[f])]
 
         if not i:
-            break # optimal solution
+            break                               # optimal solution
 
         # step towards search direction (d = tetha)
         x = x + lambda_*d
@@ -50,18 +50,13 @@ def murty(A, c, x):
             R[ib, :] = R[ib, :] / R[ib, in_idx]
             inp = np.nonzero(np.arange(m) != ib)[0]
             R[inp, :] = R[inp, :] - R[inp, in_idx][:, None] * R[ib, :]
-            R = np.delete(R, i, axis=1)  # remove column
-            jb[jb == i] = in_idx  # update index of eye matrix
+            R = np.delete(R, i, axis=1)         # remove column
+            jb[jb == i] = in_idx                # update index of eye matrix
         jb[jb > i] = jb[jb > i] - 1
 
     
     return x, B
 
-
-
-
-    
-    
 def row_echelon(A):
     m,n = np.shape(A)
     p = []
@@ -82,8 +77,8 @@ def RowScale(A,k,scale):
 #     A is a NumPy array.  RowScale will return duplicate array with the
 #     entries of row k multiplied by scale.
 # =============================================================================
-    m = A.shape[0]  # m is number of rows in A
-    n = A.shape[1]  # n is number of columns in A
+    m = A.shape[0]                              # m is number of rows in A
+    n = A.shape[1]                              # n is number of columns in A
     
     B = np.copy(A).astype('float64')
 
@@ -98,8 +93,8 @@ def RowAdd(A,k,l,scale):
 #     l modifed.  The new values will be the old values of row l added to 
 #     the values of row k, multiplied by scale.
 # =============================================================================
-    m = A.shape[0]  # m is number of rows in A
-    n = A.shape[1]  # n is number of columns in A
+    m = A.shape[0]                              # m is number of rows in A
+    n = A.shape[1]                              # n is number of columns in A
     
     B = np.copy(A).astype('float64')
         

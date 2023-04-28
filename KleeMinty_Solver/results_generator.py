@@ -42,137 +42,33 @@ def gen_results():
 
     dataframe2 = pd.DataFrame(dados['dataframe2'])
 
-    dataframe3 = pd.DataFrame({'Dimensions': [2, 4, 6, 10, 14, 18, 20, 22, 24, 26],
-                            'Simplex\nObjective Funcion Error (%)': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Interior Points\nObjective Funcion Error (%)': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Hybrid\nObjective Funcion Error (%)':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe3 = pd.DataFrame(dados['dataframe3'])
 
-    dataframe4 = pd.DataFrame({'Dimensions': [2, 4, 6, 10, 14, 18, 20, 22, 24, 26],
-                            'Simplex\nSolution Error (%)': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Interior Points\nSolution Error (%)': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Hybrid\nSolution Error (%)':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe4 = pd.DataFrame(dados['dataframe4'])
 
-    dataframe5 = pd.DataFrame({'Step': [0.01, 0.05, 0.10, 0.30, 0.50, 0.70],
-                            'Exec Time\nn=2': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=6': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=10':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=14':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=18':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=22':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=26':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe5 = pd.DataFrame(dados['dataframe5'])
 
-    dataframe6 = pd.DataFrame({'Step': [0.01, 0.05, 0.10, 0.30, 0.50, 0.70],
-                            'Iterations\nn=2': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=6': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=10':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=14':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=18':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=22':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=26':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe6 = pd.DataFrame(dados['dataframe6'])
 
-    dataframe7 = pd.DataFrame({'Step': [0.01, 0.05, 0.10, 0.30, 0.50, 0.70],
-                            'Objective Function Error (%)\nn=2': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Objective Function Error (%)\nn=6': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Objective Function Error (%)\nn=10':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Objective Function Error (%)\nn=14':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Objective Function Error (%)\nn=18':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Objective Function Error (%)\nn=22':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Objective Function Error (%)\nn=26':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe7 = pd.DataFrame(dados['dataframe7'])
 
-    dataframe8 = pd.DataFrame({'Step': [0.01, 0.05, 0.10, 0.30, 0.50, 0.70],
-                            'Solution Error (%)\nn=2': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Solution Error (%)\nn=6': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Solution Error (%)\nn=10':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Solution Error (%)\nn=14':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Solution Error (%)\nn=18':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Solution Error (%)\nn=22':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Solution Error (%)\nn=26':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe8 = pd.DataFrame(dados['dataframe8'])
 
-    dataframe9 = pd.DataFrame({'Step': [0.01, 0.05, 0.10, 0.30, 0.50, 0.70],
-                            'Exec Time\nn=2': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=6': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=10':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=14':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=18':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=22':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=26':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe9 = pd.DataFrame(dados['dataframe9'])
 
-    dataframe10 = pd.DataFrame({'Step': [0.01, 0.05, 0.10, 0.30, 0.50, 0.70],
-                            'Iterations\nn=2': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=6': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=10':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=14':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=18':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=22':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=26':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe10 = pd.DataFrame(dados['dataframe10'])
 
-    dataframe11 = pd.DataFrame({'Gap': ['1e-1', '1e-2', '1e-4', '1e-6', '1e-8', '1e-10'],
-                            'Exec Time\nn=2': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=6': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=10':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=14':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=18':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=22':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=26':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe11 = pd.DataFrame(dados['dataframe11'])
 
-    dataframe12 = pd.DataFrame({'Gap': ['1e-1', '1e-2', '1e-4', '1e-6', '1e-8', '1e-10'],
-                            'Iterations\nn=2': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=6': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=10':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=14':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=18':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=22':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=26':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe12 = pd.DataFrame(dados['dataframe12'])
 
-    dataframe13 = pd.DataFrame({'Gap': ['1e-1', '1e-2', '1e-4', '1e-6', '1e-8', '1e-10'],
-                            'Objective Function Error (%)\nn=2': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Objective Function Error (%)\nn=6': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Objective Function Error (%)\nn=10':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Objective Function Error (%)\nn=14':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Objective Function Error (%)\nn=18':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Objective Function Error (%)\nn=22':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Objective Function Error (%)\nn=26':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe13 = pd.DataFrame(dados['dataframe13'])
 
-    dataframe14 = pd.DataFrame({'Gap': ['1e-1', '1e-2', '1e-4', '1e-6', '1e-8', '1e-10'],
-                            'Solution Error (%)\nn=2': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Solution Error (%)\nn=6': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Solution Error (%)\nn=10':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Solution Error (%)\nn=14':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Solution Error (%)\nn=18':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Solution Error (%)\nn=22':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Solution Error (%)\nn=26':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe14 = pd.DataFrame(dados['dataframe14'])
 
-    dataframe15 = pd.DataFrame({'Gap': ['1e-1', '1e-2', '1e-4', '1e-6', '1e-8', '1e-10'],
-                            'Exec Time\nn=2': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=6': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=10':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=14':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=18':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=22':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Exec Time\nn=26':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe15 = pd.DataFrame(dados['dataframe15'])
 
-    dataframe16 = pd.DataFrame({'Gap': ['1e-1', '1e-2', '1e-4', '1e-6', '1e-8', '1e-10'],
-                            'Iterations\nn=2': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=6': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=10':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=14':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=18':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=22':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            'Iterations\nn=26':[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            })
+    dataframe16 = pd.DataFrame(dados['dataframe16'])
 
 
 
